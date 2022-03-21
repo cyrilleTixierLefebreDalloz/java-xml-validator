@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE book SYSTEM "cp:/sample/models/main/grammars/dtd/book/book.dtd">
+<book>
+  <page id="page1">page <italic>one</italic></page>
+  <page>page <bold>2</bold></page>
+  <foo>error</foo>
+</book>

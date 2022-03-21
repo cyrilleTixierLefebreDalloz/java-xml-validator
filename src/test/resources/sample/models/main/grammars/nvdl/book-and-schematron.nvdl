@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rules xmlns="http://purl.oclc.org/dsdl/nvdl/ns/structure/1.0" startMode="root">
+  
+  <mode name="root">
+    <namespace ns="">
+      <!--valide l'intégralité de selon modèle rng-->
+      <validate schema="../rng/book/book.rng" useMode="attach"/>
+      <!--valide l’intégralité selon le schematron-->
+      <validate schema="../sch/book-no-xslt.sch" useMode="attach" />
+    </namespace>
+  </mode>
+  
+  <mode name="attach">
+    <anyNamespace>
+      <attach/>
+    </anyNamespace>
+  </mode>
+  
+</rules>

@@ -1,0 +1,20 @@
+<?xml-model href="../../main/grammars/nvdl/book-augmented.nvdl" type="application/xml" schematypens="http://purl.oclc.org/dsdl/nvdl/ns/structure/1.0"?>
+<book>
+  <title><span xmlns="http://www.w3.org/1999/xhtml">My 1<em>st</em> book </span></title>
+  <page id="p1">This is page <bold>one</bold>.</page>
+  <page id="p2">This is page <bold>two</bold>.</page>
+  <table xmlns="http://docs.oasis-open.org/ns/oasis-exchange/table">
+    <tgroup cols="2">
+      <tbody>
+        <row>
+          <entry namest="col1" nameend="col1">cell</entry>
+          <entry namest="col2" nameend="col2">cell</entry>
+        </row>
+        <row>
+          <entry namest="col1" nameend="col1">cell</entry>
+          <entry namest="col2" nameend="col2">cell</entry>
+        </row>
+      </tbody>
+    </tgroup>
+  </table>
+</book>

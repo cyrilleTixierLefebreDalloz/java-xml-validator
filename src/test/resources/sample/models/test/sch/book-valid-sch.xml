@@ -1,0 +1,7 @@
+<?xml-model href="../../main/grammars/sch/book-xslt-include-1-level.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<!--<?xml-model href="../../main/grammars/sch/book-xslt-include-2-levels.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>-->
+<book>
+  <title><span xmlns="http://www.w3.org/1999/xhtml">and HTML inside</span></title>
+  <page>This is page <bold>one</bold>.</page>
+  <page>This is page <bold>two</bold>.</page>
+</book>

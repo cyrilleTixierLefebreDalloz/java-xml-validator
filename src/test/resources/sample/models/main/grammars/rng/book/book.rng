@@ -1,0 +1,52 @@
+<grammar xmlns="http://relaxng.org/ns/structure/1.0">
+  
+  <include href="../common/inline.rng"/>
+  
+  <start>
+    <element name="book">
+      <optional>
+        <ref name="title"/>
+      </optional>
+      <oneOrMore>
+        <ref name="page"/>
+      </oneOrMore>
+    </element>
+  </start>
+  
+  <define name="title">
+    <element name="title">
+      <choice>
+        <!--<element name="span" ns="http://www.w3.org/1999/xhtml">
+          <ref name="anything"/>
+          <text/>
+        </element>-->
+        <ref name="inline"/>
+      </choice>
+    </element>
+  </define>
+  
+  <define name="page">
+    <element name="page">
+      <optional>
+        <attribute name="id"/>
+      </optional>
+      <ref name="inline"/>
+    </element>
+  </define>
+  
+  <!--<define name="anything">
+    <zeroOrMore>
+      <choice>
+        <element>
+          <anyName/>
+          <ref name="anything"/>
+        </element>
+        <attribute>
+          <anyName/>
+        </attribute>
+        <text/>
+      </choice>
+    </zeroOrMore>
+  </define>-->
+  
+</grammar>

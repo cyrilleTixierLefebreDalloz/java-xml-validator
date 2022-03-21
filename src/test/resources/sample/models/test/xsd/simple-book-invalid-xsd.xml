@@ -1,0 +1,6 @@
+<simple-book xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:noNamespaceSchemaLocation="../../main/grammars/xsd/simple-book.xsd">
+  <page>This is page one.</page>
+  <page>This is page two.</page>
+  <foo>This element is not valid</foo>
+</simple-book>

@@ -1,0 +1,6 @@
+<book xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:noNamespaceSchemaLocation="../../main/grammars/xsd/book/book.xsd">
+  <page>This is page <bold>one</bold>.</page>
+  <page>This is page <bold>two</bold>.</page>
+  <foo/>
+</book>

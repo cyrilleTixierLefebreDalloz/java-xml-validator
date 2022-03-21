@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<book>
+  <page id="page1">page one</page>
+  <page>page 2</page>
+  <p>paragraph
+</book>

@@ -1,0 +1,12 @@
+<!--<?xml version="1.0" encoding="UTF-8"?>-->
+
+<!--<!ENTITY % inline.mod SYSTEM "../common/inline.mod">
+%inline.mod;-->
+
+<!ELEMENT book (title?,page+)>
+
+<!ELEMENT title (#PCDATA)>
+
+<!ELEMENT page (#PCDATA)>
+<!ATTLIST page id CDATA #IMPLIED>
+

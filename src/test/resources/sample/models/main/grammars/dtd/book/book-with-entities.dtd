@@ -1,0 +1,15 @@
+<!--<?xml version="1.0" encoding="UTF-8"?>-->
+
+<!ENTITY % entities PUBLIC "MY // ENTITIES" "../common/entities.ent"> 
+%entities;
+
+<!ENTITY % inline.mod SYSTEM "../common/inline.mod">
+%inline.mod;
+
+<!ELEMENT book (title?,page+)>
+
+<!ELEMENT title (%inline;)*>
+
+<!ELEMENT page (%inline;)*>
+<!ATTLIST page id CDATA #IMPLIED>
+

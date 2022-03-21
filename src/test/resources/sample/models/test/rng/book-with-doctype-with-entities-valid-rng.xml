@@ -1,0 +1,6 @@
+<?xml-model href="../../main/grammars/rng/book/book.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<!DOCTYPE book SYSTEM "cp:/sample/models/main/grammars/dtd/book/book-with-entities.dtd">
+<book>
+  <page id="p1">This is page&nbsp;<bold>one</bold>.</page>
+  <page id="p2">This is page <bold>two</bold>.</page>
+</book>

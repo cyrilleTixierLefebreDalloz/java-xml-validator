@@ -1,0 +1,6 @@
+<?xml-model href="../../main/grammars/rng/book/book.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<book>
+  <page>This is page <bold>one</bold>.</page>
+  <page>This is page <bold>two</bold>.</page>
+  <foo/>
+</book>

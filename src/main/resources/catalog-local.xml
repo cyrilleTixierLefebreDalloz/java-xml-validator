@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog">
+    <rewriteURI uriStartString="dependency:/eu.els.sie.lib.xsl.common+xslLib/" rewritePrefix="cp:/"/>
+    <rewriteSystem systemIdStartString="dependency:/eu.els.sie.lib.xsl.common+xslLib/" rewritePrefix="cp:/"/>
+
+    <rewriteURI uriStartString="dependency:/eu.els.sie.models+els-content/" rewritePrefix="cp:/"/>
+    <rewriteSystem systemIdStartString="dependency:/eu.els.sie.models+els-content/" rewritePrefix="cp:/"/>
+
+    <rewriteURI uriStartString="dependency:/eu.els.sie.models+els-content-guidance-checklist/" rewritePrefix="cp:/"/>
+    <rewriteSystem systemIdStartString="dependency:/eu.els.sie.models+els-content-guidance-checklist/" rewritePrefix="cp:/"/>
+
+    <rewriteURI uriStartString="dependency:/eu.els.sie.models+els-content-guidance-checklist-dalloz/" rewritePrefix="cp:/"/>
+    <rewriteSystem systemIdStartString="dependency:/eu.els.sie.models+els-content-guidance-checklist-dalloz/" rewritePrefix="cp:/"/>
+
+    <rewriteURI uriStartString="dependency:/eu.els.sie.models+els-content-dalloz-common/" rewritePrefix="cp:/"/>
+    <rewriteSystem systemIdStartString="dependency:/eu.els.sie.models+els-content-dalloz-common/" rewritePrefix="cp:/"/>
+
+    <rewriteURI uriStartString="dependency:/eu.els.sie.models+els-content-guidance-pn-dalloz/" rewritePrefix="cp:/"/>
+    <rewriteSystem systemIdStartString="dependency:/eu.els.sie.models+els-content-guidance-pn-dalloz/" rewritePrefix="cp:/"/>
+
+    <rewriteURI uriStartString="dependency:/eu.els.sie.models+els-content-guidance-quickguide/" rewritePrefix="cp:/"/>
+    <rewriteSystem systemIdStartString="dependency:/eu.els.sie.models+els-content-guidance-quickguide/" rewritePrefix="cp:/"/>
+
+    <rewriteURI uriStartString="dependency:/eu.els.sie.models+els-content-guidance-quickguide-dalloz/" rewritePrefix="cp:/"/>
+    <rewriteSystem systemIdStartString="dependency:/eu.els.sie.models+els-content-guidance-quickguide-dalloz/" rewritePrefix="cp:/"/>
+
+    <rewriteURI uriStartString="dependency:/eu.els.sie.models+els-content-el-actu/" rewritePrefix="cp:/"/>
+    <rewriteSystem systemIdStartString="dependency:/eu.els.sie.models+els-content-el-actu/" rewritePrefix="cp:/"/>
+
+    <rewriteURI uriStartString="dependency:/eu.els.sie.models+els-content-el-actuELI-article/" rewritePrefix="cp:/"/>
+    <rewriteSystem systemIdStartString="dependency:/eu.els.sie.models+els-content-el-actuELI-article/" rewritePrefix="cp:/"/>
+
+    <rewriteURI uriStartString="dependency:/eu.els.sie.models+els-content-el-actuELI-article-court/" rewritePrefix="cp:/"/>
+    <rewriteSystem systemIdStartString="dependency:/eu.els.sie.models+els-content-el-actuELI-article-court/" rewritePrefix="cp:/"/>
+
+    <rewriteURI uriStartString="dependency:/eu.els.sie.models+els-content-el-actuELI-article-long/" rewritePrefix="cp:/"/>
+    <rewriteSystem systemIdStartString="dependency:/eu.els.sie.models+els-content-el-actuELI-article-long/" rewritePrefix="cp:/"/>
+
+    <rewriteURI uriStartString="dependency:/eu.els.sie.models+els-juri/" rewritePrefix="cp:/"/>
+    <rewriteSystem systemIdStartString="dependency:/eu.els.sie.models+els-juri/" rewritePrefix="cp:/"/>
+
+    <rewriteURI uriStartString="dependency:/eu.els.sie.models+els-content-efl-actu/" rewritePrefix="cp:/"/>
+    <rewriteSystem systemIdStartString="dependency:/eu.els.sie.models+els-content-efl-actu/" rewritePrefix="cp:/"/>
+
+    <rewriteURI uriStartString="dependency:/eu.els.sie.models+els-content-gateway/" rewritePrefix="cp:/"/>
+    <rewriteSystem systemIdStartString="dependency:/eu.els.sie.models+els-content-gateway/" rewritePrefix="cp:/"/>
+
+    <rewriteURI uriStartString="dependency:/eu.els.sie.models+ext-models/" rewritePrefix="cp:/"/>
+    <rewriteSystem systemIdStartString="dependency:/eu.els.sie.models+ext-models/" rewritePrefix="cp:/"/>
+
+    <rewriteURI uriStartString="dependency:/eu.els.sie.models+efl-models/" rewritePrefix="cp:/"/>
+    <rewriteSystem systemIdStartString="dependency:/eu.els.sie.models+efl-models/" rewritePrefix="cp:/"/>
+
+    <rewriteURI uriStartString="dependency:/eu.els.sie.models+dalloz-models/" rewritePrefix="cp:/"/>
+    <rewriteSystem systemIdStartString="dependency:/eu.els.sie.models+dalloz-models/" rewritePrefix="cp:/"/>
+
+    <rewriteURI uriStartString="dependency:/eu.els.sie.models+el-models/" rewritePrefix="cp:/"/>
+    <rewriteSystem systemIdStartString="dependency:/eu.els.sie.models+el-models/" rewritePrefix="cp:/"/>
+</catalog>

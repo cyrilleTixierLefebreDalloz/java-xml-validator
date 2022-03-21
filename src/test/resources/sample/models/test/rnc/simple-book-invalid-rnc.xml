@@ -1,0 +1,6 @@
+<?xml-model href="../../main/grammars/rnc/simple-book.rnc" type="application/relax-ng-compact-syntax"?>
+<simple-book>
+  <page>This is page one.</page>
+  <page>This is page two.</page>
+  <foo>This element is not valid</foo>
+</simple-book>

@@ -1,0 +1,6 @@
+<?xml-model href="../../main/grammars/nvdl/book-augmented.nvdl" type="application/xml" schematypens="http://purl.oclc.org/dsdl/nvdl/ns/structure/1.0"?>
+<book>
+  <title>text with word <span xmlns="http://www.w3.org/1999/xhtml">and HTML inside <p><p>p inside p is forbiden in HTML</p></p></span></title>
+  <page>This is page <bold>one</bold>. error</page>
+  <page>This is page <bold>two</bold>. warning</page>
+</book>

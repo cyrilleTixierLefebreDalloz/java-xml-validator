@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog">
+  <!--DOCTYPE any/path/to/book.dtd-->
+  <systemSuffix systemIdSuffix="book.dtd" uri="cp:/xml-multi-models-sample/main/grammars/dtd/book/book.dtd"/>
+  <systemSuffix systemIdSuffix="book.dtd" uri="cp:/xml-multi-models-sample/main/grammars/dtd/book/book.dtd"/>
+  
+  <!--DOCTYPE any/path/to/book-with-entities.dtd-->
+  <systemSuffix systemIdSuffix="book-with-entities.dtd" uri="cp:/xml-multi-models-sample/main/grammars/dtd/book/book-with-entities.dtd"/>
+  <systemSuffix systemIdSuffix="book-with-entities.dtd" uri="cp:/xml-multi-models-sample/main/grammars/dtd/book/book-with-entities.dtd"/>
+</catalog>

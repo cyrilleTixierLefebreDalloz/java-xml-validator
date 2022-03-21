@@ -1,0 +1,2 @@
+start = element simple-book { page+ }
+page = element page { text }

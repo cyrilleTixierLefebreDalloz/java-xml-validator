@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE book SYSTEM "../../main/grammars/dtd/book/book-with-entities.dtd">
+<book>
+  <page id="page1">page&nbsp;<italic>one</italic></page>
+  <page>page <bold>2</bold></page>
+</book>

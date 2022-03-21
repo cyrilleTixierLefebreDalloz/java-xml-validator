@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+  <xs:complexType name="inline" mixed="true">
+    <xs:choice minOccurs="0" maxOccurs="unbounded">
+      <xs:element ref="bold"/>
+      <xs:element ref="italic"/>
+      <xs:element ref="span"/>
+    </xs:choice>
+  </xs:complexType>
+  <xs:element name="bold" type="inline"/>
+  <xs:element name="italic" type="inline"/>
+  <xs:element name="span">
+    <xs:complexType>
+      <xs:complexContent>
+        <xs:extension base="inline">
+          <xs:attribute name="style"/>
+        </xs:extension>
+      </xs:complexContent>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

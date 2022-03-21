@@ -1,0 +1,5 @@
+<?xml-model href="../../main/grammars/nvdl/book-and-schematron.nvdl" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<book>
+  <page id="p1">This is page <bold>one</bold>.</page>
+  <page id="p2">This is page <bold>two</bold>.</page>
+</book>

@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://maven.apache.org/POM/4.0.0"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>eu.els.sie.xml</groupId>
+	<artifactId>xml-validator</artifactId>
+	<version>${revision}</version>
+	<packaging>jar</packaging>
+
+	<properties>
+		<revision>1.00.00-SNAPSHOT</revision>
+		<maven.compiler.source>11</maven.compiler.source>
+		<maven.compiler.target>11</maven.compiler.target>
+		<maven-compiler-version>3.8.1</maven-compiler-version>
+		<maven.compiler.plugin.version>3.8.1</maven.compiler.plugin.version>
+		<log4j2.version>2.17.0</log4j2.version>
+	</properties>
+
+	<dependencies>
+		<dependency>
+			<groupId>org.junit.jupiter</groupId>
+			<artifactId>junit-jupiter</artifactId>
+			<version>5.7.2</version>
+			<scope>test</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>xml-resolver</groupId>
+			<artifactId>xml-resolver</artifactId>
+			<version>1.2</version>
+		</dependency>
+
+		<!--Xerces needed for parsing XML Documents with DTD -->
+		<dependency>
+			<groupId>xerces</groupId>
+			<artifactId>xercesImpl</artifactId>
+			<version>2.12.1</version>
+			<exclusions>
+				<exclusion>
+					<groupId>xml-apis</groupId>
+					<artifactId>xml-apis</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+
+		<dependency>
+			<groupId>eu.els.oss</groupId>
+			<artifactId>jing</artifactId>
+			<version>20190924</version>
+		</dependency>
+
+		<!--Schematron validation with jing requires gson -->
+		<dependency>
+			<groupId>com.google.code.gson</groupId>
+			<artifactId>gson</artifactId>
+			<version>2.8.9</version>
+		</dependency>
+
+		<!--Schematron validation with jing requires saxon (even if the schematron
+			doesn't have XSLT instructions) -->
+		<dependency>
+			<groupId>extern.net.sf.saxon</groupId>
+			<artifactId>saxonee</artifactId>
+			<version>9.9.1.7</version>
+		</dependency>
+
+		<dependency>
+			<groupId>extern.net.sf.saxon</groupId>
+			<artifactId>saxonee-license</artifactId>
+			<version>9.9.2020</version>
+		</dependency>
+
+		<dependency>
+			<groupId>eu.els.sie.models.sample</groupId>
+			<artifactId>sample-xml-multi-models</artifactId>
+			<version>1.00.00</version>
+		</dependency>
+		<dependency>
+			<groupId>eu.els.sie.xdev.flash</groupId>
+			<artifactId>xf-sas</artifactId>
+			<version>4.34.00-SNAPSHOT</version>
+		</dependency>
+	</dependencies>
+
+	<build>
+		<finalName>maven-unit-test</finalName>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<version>3.0.0-M4</version>
+			</plugin>
+		</plugins>
+	</build>
+
+	<distributionManagement>
+		<snapshotRepository>
+			<id>${snapshotRepositoryId}</id>
+			<url>${snapshotRepositoryUrl}</url>
+		</snapshotRepository>
+		<repository>
+			<id>${releaseRepositoryId}</id>
+			<url>${releaseRepositoryUrl}</url>
+		</repository>
+	</distributionManagement>
+
+</project>

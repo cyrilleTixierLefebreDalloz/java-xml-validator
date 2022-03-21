@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rules xmlns="http://purl.oclc.org/dsdl/nvdl/ns/structure/1.0" startMode="root">
+  
+  <mode name="root">
+    <namespace ns="">
+      <validate schema="../sch/UNEXIST-FILE.sch" useMode="attach" />
+    </namespace>
+  </mode>
+  
+</rules>

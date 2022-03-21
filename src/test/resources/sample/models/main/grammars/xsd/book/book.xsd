@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+  <xs:include schemaLocation="../common/inline.xsd"/>
+  <xs:element name="book">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" ref="title"/>
+        <xs:element maxOccurs="unbounded" ref="page"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="title" type="inline"/>
+  <xs:element name="page">
+    <xs:complexType>
+      <xs:complexContent>
+        <xs:extension base="inline">
+          <xs:attribute name="id"/>
+        </xs:extension>
+      </xs:complexContent>
+    </xs:complexType>
+  </xs:element>
+  <!--
+    <define name="anything">
+      <zeroOrMore>
+        <choice>
+          <element>
+            <anyName/>
+            <ref name="anything"/>
+          </element>
+          <attribute>
+            <anyName/>
+          </attribute>
+          <text/>
+        </choice>
+      </zeroOrMore>
+    </define>
+  -->
+</xs:schema>
