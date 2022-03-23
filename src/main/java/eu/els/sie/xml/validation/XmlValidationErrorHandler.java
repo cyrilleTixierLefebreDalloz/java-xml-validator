@@ -4,7 +4,7 @@ import org.xml.sax.ErrorHandler;
 import org.xml.sax.SAXParseException;
 
 import java.util.ArrayList;
-import java.util.HashMap;
+import java.util.EnumMap;
 import java.util.List;
 import java.util.Map;
 
@@ -16,7 +16,7 @@ public class XmlValidationErrorHandler implements ErrorHandler {
 	}
 
 	// list of error messages encounterd during the validation, grouped by level of severity
-	private final Map<LEVEL, List<String>> report = new HashMap<>();
+	private final Map<LEVEL, List<String>> report = new EnumMap<>(LEVEL.class);
 
 	public XmlValidationErrorHandler() {
 		report.put(LEVEL.WARN, new ArrayList<>());

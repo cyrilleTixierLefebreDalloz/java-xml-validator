@@ -7,7 +7,7 @@ import java.net.URLConnection;
 import java.net.URLStreamHandler;
 
 public class Handler extends URLStreamHandler {
-	private static final ClassLoader CL = Handler.class.getClassLoader();
+	private static final ClassLoader CLASS_LOADER = Handler.class.getClassLoader();
 
 	@Override
 	protected URLConnection openConnection(URL url) {
@@ -19,7 +19,7 @@ public class Handler extends URLStreamHandler {
 
 			@Override
 			public InputStream getInputStream() {
-				return CL.getResourceAsStream(url.getPath().substring(1));
+				return CLASS_LOADER.getResourceAsStream(url.getPath().substring(1));
 			}
 		};
 	}

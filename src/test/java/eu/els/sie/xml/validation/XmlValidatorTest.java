@@ -14,7 +14,7 @@ import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-public class XmlValidatorTest {
+class XmlValidatorTest {
 
 	private static final List<String> xmlCatalogsPathLoadedFromDependency = Arrays.asList(
 			"sample/models/main/catalogs/catalog-for-dependency.xml",
@@ -22,10 +22,10 @@ public class XmlValidatorTest {
 
 	private static final List<String> xmlCatalogsPathLocal = List.of("catalog-local.xml");
 
-	private static final ClassLoader CL = XmlValidatorTest.class.getClassLoader();
+	private static final ClassLoader CLASS_LOADER = XmlValidatorTest.class.getClassLoader();
 
 	byte[] getResourceContentFromResourcePath(String resourcePath) throws IOException {
-		byte[] xmlContent = new FileInputStream(CL.getResource(resourcePath).getPath()).readAllBytes();
+		byte[] xmlContent = new FileInputStream(CLASS_LOADER.getResource(resourcePath).getPath()).readAllBytes();
 		return xmlContent;
 	}
 
@@ -39,7 +39,7 @@ public class XmlValidatorTest {
 			String xmlResourcePath = "sample/models/test/nvdl/book-augmented-valid-nvdl.xml";
 			byte[] xmlResourceContent = getResourceContentFromResourcePath(xmlResourcePath);
 
-			XmlValidator.checkXMLWellFormedness(xmlResourceContent);
+			XmlValidator.checkXmlWellFormedness(xmlResourceContent);
 		} catch (Exception e) {
 			fail("No Exception expected: " + e.getMessage());
 		}
@@ -51,8 +51,8 @@ public class XmlValidatorTest {
 		byte[] xmlResourceContent = getResourceContentFromResourcePath(xmlResourcePath);
 
 		Throwable expThatWasThrown = assertThrows(XmlValidationException.class,
-				() -> XmlValidator.checkXMLWellFormedness(xmlResourceContent));;
-		assertTrue(expThatWasThrown.getMessage().contains("Input stream is not well-formed"));
+				() -> XmlValidator.checkXmlWellFormedness(xmlResourceContent));;
+		assertTrue(expThatWasThrown.getMessage().contains("XML is not well formed"));
 	}
 
 	/* ================================== */
@@ -61,7 +61,7 @@ public class XmlValidatorTest {
 
 	@Test
 	void GIVEN_valid_xml_WHEN_add_doctype_THEN_success() {
-		try (InputStream in = CL.getResourceAsStream("sample/models/test/dtd/book-valid-dtd.xml")) {
+		try (InputStream in = CLASS_LOADER.getResourceAsStream("sample/models/test/dtd/book-valid-dtd.xml")) {
 			XmlValidator.addDoctypeSystem(in, "test");
 		} catch (IOException | XmlValidationException e) {
 			fail("No Exception expected");
@@ -70,7 +70,7 @@ public class XmlValidatorTest {
 
 	@Test
 	void GIVEN_not_exists_xml_WHEN_add_doctype_THEN_exception() {
-		InputStream in = CL.getResourceAsStream("sample/models/test/file_not_exists.xml");
+		InputStream in = CLASS_LOADER.getResourceAsStream("sample/models/test/file_not_exists.xml");
 		Throwable expThatWasThrown = assertThrows(XmlValidationException.class,
 				() -> XmlValidator.addDoctypeSystem(in, "test"));;
 		assertTrue(expThatWasThrown.getMessage().contains("Input stream cannot be null"));
@@ -78,10 +78,10 @@ public class XmlValidatorTest {
 
 	@Test
 	void GIVEN_not_wellformed_xml_WHEN_add_doctype_THEN_exception() {
-		InputStream in = CL.getResourceAsStream("sample/models/test/book-not-wellformed.xml");
+		InputStream in = CLASS_LOADER.getResourceAsStream("sample/models/test/book-not-wellformed.xml");
 		Throwable expThatWasThrown = assertThrows(XmlValidationException.class,
 				() -> XmlValidator.addDoctypeSystem(in, "test"));;
-		assertTrue(expThatWasThrown.getMessage().contains("Input stream is not well-formed"));
+		assertTrue(expThatWasThrown.getMessage().contains("XML is not well formed"));
 	}
 
 	/* ================================== */
@@ -124,7 +124,7 @@ public class XmlValidatorTest {
 
 		Throwable expThatWasThrown = assertThrows(XmlValidationException.class,
 				() -> XmlValidator.validate(xmlResourceContent, "cp:/xml-multi-models-sample/main/grammars/rng/simple-book/simple-book.rng", null));
-		assertTrue(expThatWasThrown.getMessage().contains("XML invalid against model"));
+		assertTrue(expThatWasThrown.getMessage().contains("XML is not valid against model"));
 	}
 
 	@Test
@@ -225,7 +225,7 @@ public class XmlValidatorTest {
 
 		Throwable expThatWasThrown = assertThrows(XmlValidationException.class,
 				() -> XmlValidator.validate(xmlResourceContent, "cp:/xml-multi-models-sample/main/grammars/dtd/book/book.dtd", null));
-		assertTrue(expThatWasThrown.getMessage().contains("XML invalid against model"));
+		assertTrue(expThatWasThrown.getMessage().contains("XML is not valid"));
 	}
 
 	/* ================================== */
@@ -251,7 +251,7 @@ public class XmlValidatorTest {
 
 		Throwable expThatWasThrown = assertThrows(XmlValidationException.class,
 				() -> XmlValidator.validate(xmlResourceContent, "cp:/xml-multi-models-sample/main/grammars/xsd/simple-book.xsd", null));
-		assertTrue(expThatWasThrown.getMessage().contains("XML invalid against model"));
+		assertTrue(expThatWasThrown.getMessage().contains("XML is not valid against model"));
 	}
 
 	@Test
@@ -274,7 +274,7 @@ public class XmlValidatorTest {
 
 		Throwable expThatWasThrown = assertThrows(XmlValidationException.class,
 				() -> XmlValidator.validate(xmlResourceContent, "cp:/xml-multi-models-sample/main/grammars/xsd/book/book.xsd", null));
-		assertTrue(expThatWasThrown.getMessage().contains("XML invalid against model"));
+		assertTrue(expThatWasThrown.getMessage().contains("XML is not valid against model"));
 	}
 
 	/* ================================== */
@@ -302,7 +302,7 @@ public class XmlValidatorTest {
 
 		Throwable expThatWasThrown = assertThrows(XmlValidationException.class,
 				() -> XmlValidator.validate(xmlResourceContent, "cp:/xml-multi-models-sample/main/grammars/sch/book-no-xslt.sch", null));
-		assertTrue(expThatWasThrown.getMessage().contains("XML invalid against model"));
+		assertTrue(expThatWasThrown.getMessage().contains("XML is not valid against model"));
 	}
 
 	@Test
@@ -313,7 +313,7 @@ public class XmlValidatorTest {
 
 		Throwable expThatWasThrown = assertThrows(XmlValidationException.class,
 				() -> XmlValidator.validate(xmlResourceContent, "cp:/xml-multi-models-sample/main/grammars/sch/book-xslt-include-1-level.sch", null));
-		assertTrue(expThatWasThrown.getMessage().contains("XML invalid against model"));
+		assertTrue(expThatWasThrown.getMessage().contains("XML is not valid against model"));
 	}
 
 	@Test
@@ -367,7 +367,7 @@ public class XmlValidatorTest {
 
 		Throwable expThatWasThrown = assertThrows(XmlValidationException.class,
 				() -> XmlValidator.validate(xmlResourceContent, "cp:/xml-multi-models-sample/main/grammars/nvdl/book-augmented.nvdl", xmlCatalogsPathLocal));
-		assertTrue(expThatWasThrown.getMessage().contains("XML invalid against model"));
+		assertTrue(expThatWasThrown.getMessage().contains("XML is not valid against model"));
 	}
 
 	@Test
@@ -391,9 +391,8 @@ public class XmlValidatorTest {
 
 		Throwable expThatWasThrown = assertThrows(XmlValidationException.class,
 				() -> XmlValidator.validate(xmlResourceContent, "cp:/xml-multi-models-sample/main/grammars/nvdl/book-and-schematron.nvdl", null));
-		assertTrue(expThatWasThrown.getMessage().contains("XML invalid against model"));
+		assertTrue(expThatWasThrown.getMessage().contains("XML is not valid against model"));
 	}
-
 
 	@Test
 	@DisplayName("Test NVDL Validation : valid XML - NVDL with dependencies (rng + rnc calling dependency:/ + sch) - xmlCatalogsPathLoadedFromDependency")

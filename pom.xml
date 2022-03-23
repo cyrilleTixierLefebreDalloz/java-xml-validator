@@ -13,9 +13,7 @@
 		<revision>1.00.00-SNAPSHOT</revision>
 		<maven.compiler.source>11</maven.compiler.source>
 		<maven.compiler.target>11</maven.compiler.target>
-		<maven-compiler-version>3.8.1</maven-compiler-version>
-		<maven.compiler.plugin.version>3.8.1</maven.compiler.plugin.version>
-		<log4j2.version>2.17.0</log4j2.version>
+		<slf4j.version>1.7.36</slf4j.version>
 	</properties>
 
 	<dependencies>
@@ -77,10 +75,17 @@
 			<artifactId>sample-xml-multi-models</artifactId>
 			<version>1.00.00</version>
 		</dependency>
+
 		<dependency>
-			<groupId>eu.els.sie.xdev.flash</groupId>
-			<artifactId>xf-sas</artifactId>
-			<version>4.34.00-SNAPSHOT</version>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-api</artifactId>
+			<version>${slf4j.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-simple</artifactId>
+			<version>${slf4j.version}</version>
 		</dependency>
 	</dependencies>
 
@@ -92,6 +97,16 @@
 				<artifactId>maven-surefire-plugin</artifactId>
 				<version>3.0.0-M4</version>
 			</plugin>
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.10.1</version>
+				<configuration>
+					<release>11</release>
+				</configuration>
+			</plugin>
+
 		</plugins>
 	</build>
 
