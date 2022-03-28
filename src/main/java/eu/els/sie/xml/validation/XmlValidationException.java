@@ -5,8 +5,9 @@ import eu.els.sie.xml.validation.XmlValidationErrorHandler.LEVEL;
 import java.util.List;
 import java.util.Map;
 
+import static java.lang.String.join;
+
 public class XmlValidationException extends Exception {
-	private static final long serialVersionUID = -3380305551685784482L;
 
 	private final Map<LEVEL, List<String>> report;
 
@@ -27,7 +28,7 @@ public class XmlValidationException extends Exception {
 		msg.append("\n");
 		if (report != null) {
 			for (List<String> levelMessages : report.values()) {
-				msg.append(String.join("\n", levelMessages));
+				msg.append(join("\n", levelMessages));
 			}
 			msg.append("\n");
 		}

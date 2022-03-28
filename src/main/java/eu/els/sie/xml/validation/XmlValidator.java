@@ -24,6 +24,8 @@ import java.net.URISyntaxException;
 import java.util.ArrayList;
 import java.util.List;
 
+import static java.lang.String.*;
+
 public class XmlValidator {
 
 	private static final Logger logger = LoggerFactory.getLogger(XmlValidator.class);
@@ -33,15 +35,15 @@ public class XmlValidator {
 	private static final String EXTERNAL_GENERAL_ENTITIES = "http://xml.org/sax/features/external-general-entities";
 	private static final String EXTERNAL_PARAMETER_ENTITIES = "http://xml.org/sax/features/external-parameter-entities";
 
-	private static final String EXCEPTION_PARSER_CONFIGURATION = "SAX parser configuration error";
-	private static final String EXCEPTION_INVALID_XML = "XML is not valid";
-	private static final String EXCEPTION_INVALID_XML_AGAINST_MODEL = "XML is not valid against model";
-	private static final String EXCEPTION_XML_NOT_WELL_FORMED = "XML is not well formed";
-	private static final String EXCEPTION_INPUT_STREAM_NULL = "Input stream cannot be null";
-	private static final String EXCEPTION_READING_INPUT_STREAM = "Error while reading input stream";
-	private static final String EXCEPTION_LOADING_SCHEMA = "Error while loading schema";
-	private static final String EXCEPTION_PARSING_SCHEMA = "Error while parsing schema";
-	private static final String EXCEPTION_ADDING_DOCTYPE = "Problem while adding doctype";
+	private static final String EXCEPTION_PARSER_CONFIGURATION = "SAX parser configuration error: %s";
+	private static final String EXCEPTION_INVALID_XML = "XML is not valid: %s";
+	private static final String EXCEPTION_INVALID_XML_AGAINST_MODEL = "XML is not valid against model: %s";
+	private static final String EXCEPTION_XML_NOT_WELL_FORMED = "XML is not well formed: %s";
+	private static final String EXCEPTION_INPUT_STREAM_NULL = "Input stream cannot be null: %s";
+	private static final String EXCEPTION_READING_INPUT_STREAM = "Error while reading input stream: %s";
+	private static final String EXCEPTION_LOADING_SCHEMA = "Error while loading schema: %s";
+	private static final String EXCEPTION_PARSING_SCHEMA = "Error while parsing schema: %s";
+	private static final String EXCEPTION_ADDING_DOCTYPE = "Problem while adding doctype: %s";
 
 	private XmlValidator() {
 		throw new IllegalStateException("Utility class");
@@ -68,11 +70,11 @@ public class XmlValidator {
 			InputStream inputStream = new ByteArrayInputStream(xml);
 			parser.parse(new InputSource(inputStream), handler);
 		} catch (ParserConfigurationException e) {
-			throw new XmlValidationException(EXCEPTION_PARSER_CONFIGURATION + ": " + e);
+			throw new XmlValidationException(format(EXCEPTION_PARSER_CONFIGURATION, e));
 		} catch (SAXException e) {
-			throw new XmlValidationException(EXCEPTION_XML_NOT_WELL_FORMED + ": " + e);
+			throw new XmlValidationException(format(EXCEPTION_XML_NOT_WELL_FORMED, e));
 		} catch (IOException e) {
-			throw new XmlValidationException(EXCEPTION_READING_INPUT_STREAM + ": " + e);
+			throw new XmlValidationException(format(EXCEPTION_READING_INPUT_STREAM, e));
 		}
 	}
 
@@ -120,11 +122,11 @@ public class XmlValidator {
 			InputStream inputStream = new ByteArrayInputStream(xml);
 			reader.parse(new InputSource(inputStream));
 		} catch (ParserConfigurationException e) {
-			throw new XmlValidationException(EXCEPTION_PARSER_CONFIGURATION + ": " + e);
+			throw new XmlValidationException(format(EXCEPTION_PARSER_CONFIGURATION, e));
 		} catch (SAXException e) {
-			throw new XmlValidationException(EXCEPTION_INVALID_XML + ": " + e);
+			throw new XmlValidationException(format(EXCEPTION_INVALID_XML, e));
 		} catch (IOException e) {
-			throw new XmlValidationException(EXCEPTION_READING_INPUT_STREAM + ": " + e);
+			throw new XmlValidationException(format(EXCEPTION_READING_INPUT_STREAM, e));
 		}
 	}
 
@@ -143,18 +145,18 @@ public class XmlValidator {
 		try {
 			validationDriver.loadSchema(new InputSource(schemaUri));
 		} catch (IOException e) {
-			throw new XmlValidationException(EXCEPTION_LOADING_SCHEMA + " " + schemaUri + ": " + e);
+			throw new XmlValidationException(format(EXCEPTION_LOADING_SCHEMA, schemaUri), errorHandler.getReport());
 		} catch (SAXException e) {
-			throw new XmlValidationException(EXCEPTION_PARSING_SCHEMA + " " + schemaUri + ": " + e);
+			throw new XmlValidationException(format(EXCEPTION_PARSING_SCHEMA, schemaUri), errorHandler.getReport());
 		}
 		try {
 			if (!validationDriver.validate(xmlInputSource)) {
-				throw new XmlValidationException(EXCEPTION_INVALID_XML_AGAINST_MODEL + " " + schemaUri, errorHandler.getReport());
+				throw new XmlValidationException(format(EXCEPTION_INVALID_XML_AGAINST_MODEL, schemaUri), errorHandler.getReport());
 			}
 		} catch (IOException e) {
-			throw new XmlValidationException(EXCEPTION_READING_INPUT_STREAM + " " + xmlInputSource.getSystemId() + e, errorHandler.getReport());
+			throw new XmlValidationException(format(EXCEPTION_READING_INPUT_STREAM, xmlInputSource.getSystemId()), errorHandler.getReport());
 		} catch (SAXException e) {
-			throw new XmlValidationException(EXCEPTION_INVALID_XML + " " + xmlInputSource.getSystemId(), errorHandler.getReport());
+			throw new XmlValidationException(format(EXCEPTION_INVALID_XML, xmlInputSource.getSystemId()), errorHandler.getReport());
 		}
 	}
 
@@ -181,15 +183,15 @@ public class XmlValidator {
 			transformer.transform(source, result);
 			return ((ByteArrayOutputStream)result.getOutputStream()).toByteArray();
 		} catch (TransformerException e) {
-			throw new XmlValidationException(EXCEPTION_ADDING_DOCTYPE + ": " + e);
+			throw new XmlValidationException(format(EXCEPTION_ADDING_DOCTYPE, e));
 		} catch (IllegalArgumentException e) {
-			throw new XmlValidationException(EXCEPTION_INPUT_STREAM_NULL + ": " + e);
+			throw new XmlValidationException(format(EXCEPTION_INPUT_STREAM_NULL, e));
 		} catch (IOException e) {
-			throw new XmlValidationException(EXCEPTION_READING_INPUT_STREAM + ": " + e);
+			throw new XmlValidationException(format(EXCEPTION_READING_INPUT_STREAM, e));
 		} catch (SAXException e) {
-			throw new XmlValidationException(EXCEPTION_XML_NOT_WELL_FORMED + ": " + e);
+			throw new XmlValidationException(format(EXCEPTION_XML_NOT_WELL_FORMED, e));
 		} catch (ParserConfigurationException e) {
-			throw new XmlValidationException(EXCEPTION_PARSER_CONFIGURATION + ": " + e);
+			throw new XmlValidationException(format(EXCEPTION_PARSER_CONFIGURATION, e));
 		}
 	}
 
