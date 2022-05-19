@@ -5,9 +5,35 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>fr.lefebvredalloz.xml</groupId>
-	<artifactId>xml-validator</artifactId>
+	<artifactId>java-xml-validator</artifactId>
 	<version>${revision}</version>
 	<packaging>jar</packaging>
+
+	<name>java-xml-validator</name>
+	<description>Java program to validate XML files with different kind of grammars : XSD, DTD, RNG, RNC, Schematron, NVDL</description>
+	<url>https://github.com/ELSGestion/java-xml-validator</url>
+
+	<licenses>
+		<license>
+			<name>MPL-2.0 license</name>
+			<url>https://www.mozilla.org/en-US/MPL/2.0/</url>
+		</license>
+	</licenses>
+
+	<developers>
+		<developer>
+			<name>Saleh Fouzi</name>
+			<email>s.fouzi@lefebvre-dalloz.fr</email>
+			<organization>Lefebvre Dalloz</organization>
+			<organizationUrl>https://www.lefebvre-dalloz.fr/</organizationUrl>
+		</developer>
+	</developers>
+
+	<scm>
+		<connection>scm:git:git://github.com/ELSGestion/java-xml-validator.git</connection>
+		<developerConnection>scm:git:ssh://github.com:ELSGestion/java-xml-validator.git</developerConnection>
+		<url>http://github.com/ELSGestion/java-xml-validator/tree/main</url>
+	</scm>
 
 	<properties>
 		<revision>1.0.0-SNAPSHOT</revision>
