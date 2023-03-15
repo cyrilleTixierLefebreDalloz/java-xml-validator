@@ -4,8 +4,8 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
-	<groupId>fr.lefebvredalloz.xml</groupId>
-	<artifactId>java-xml-validator</artifactId>
+	<groupId>fr.lefebvre-dalloz.xml</groupId>
+	<artifactId>validator</artifactId>
 	<version>${revision}</version>
 	<packaging>jar</packaging>
 
@@ -153,7 +153,7 @@
 				<configuration>
 					<archive>
 						<manifest>
-							<mainClass>eu.els.sie.xml.validation.Main</mainClass>
+							<mainClass>fr.lefebvredalloz.xml.validator.Main</mainClass>
 						</manifest>
 					</archive>
 					<descriptorRefs>
